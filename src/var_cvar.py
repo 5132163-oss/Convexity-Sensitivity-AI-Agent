@@ -1,4 +1,4 @@
-import pandas as pd
+ import pandas as pd
 import numpy as np
 from pathlib import Path
 
@@ -80,4 +80,17 @@ if __name__ == "__main__":
             0.95
         )
 
-        cvar_95 = calculate
+        cvar_95 = calculate_cvar(
+            pnl,
+            0.95
+        )
+
+        print(
+            "95% VaR:",
+            round(var_95, 2)
+        )
+
+        print(
+            "95% CVaR:",
+            round(cvar_95, 2)
+        )

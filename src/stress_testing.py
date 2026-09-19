@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 
 def stress_test(
@@ -27,14 +28,27 @@ def stress_test(
         * market_value
     )
 
-    total_pnl = duration_effect + convexity_effect
+    total_pnl = (
+        duration_effect
+        + convexity_effect
+    )
 
-    return duration_effect, convexity_effect, total_pnl
+    return (
+        duration_effect,
+        convexity_effect,
+        total_pnl
+    )
 
 
 if __name__ == "__main__":
 
-    file_path = "data/bond_portfolio.csv"
+    project_root = Path(__file__).resolve().parent.parent
+
+    file_path = (
+        project_root
+        / "data"
+        / "bond_portfolio.csv"
+    )
 
     data = pd.read_csv(file_path)
 
@@ -54,6 +68,8 @@ if __name__ == "__main__":
 
     stress_scenarios = [
         -100,
+        25,
+        50,
         100,
         200,
         300
@@ -64,16 +80,34 @@ if __name__ == "__main__":
 
     for shift in stress_scenarios:
 
-        duration_effect, convexity_effect, total_pnl = (
-            stress_test(
-                market_value,
-                duration,
-                convexity,
-                shift
-            )
+        (
+            duration_effect,
+            convexity_effect,
+            total_pnl
+        ) = stress_test(
+            market_value,
+            duration,
+            convexity,
+            shift
         )
 
-        print("\nRate Shift:", shift, "bps")
-        print("Duration Effect:", round(duration_effect, 2))
-        print("Convexity Effect:", round(convexity_effect, 2))
-        print("Total P&L:", round(total_pnl, 2))
+        print(
+            "\nRate Shift:",
+            shift,
+            "bps"
+        )
+
+        print(
+            "Duration Effect:",
+            round(duration_effect, 2)
+        )
+
+        print(
+            "Convexity Effect:",
+            round(convexity_effect, 2)
+        )
+
+        print(
+            "Total P&L:",
+            round(total_pnl, 2)
+        )

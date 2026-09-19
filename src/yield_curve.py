@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 
 def load_yield_curve(file_path):
@@ -25,7 +26,13 @@ def summarize_yield_curve(data):
 
 if __name__ == "__main__":
 
-    file_path = "../data/yield_curve_history.csv"
+    project_root = Path(__file__).resolve().parent.parent
+
+    file_path = (
+        project_root
+        / "data"
+        / "yield_curve_history.csv"
+    )
 
     data = load_yield_curve(file_path)
 
@@ -34,9 +41,7 @@ if __name__ == "__main__":
 
     print("Number of records:", len(data))
 
-    # The current project dataset contains the required
-    # column structure but no historical observations yet.
-    if data["Yield"].notna().any():
+    if not data.empty and data["Yield"].notna().any():
 
         summary = summarize_yield_curve(data)
 

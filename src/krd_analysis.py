@@ -1,15 +1,16 @@
 import pandas as pd
+from pathlib import Path
 
 
 def calculate_key_rate_duration(data, key_rate_buckets):
     """
-    Calculate the portfolio exposure for each
+    Calculate portfolio exposure for each
     key-rate bucket.
     """
 
-    krd_results = []
-
     total_value = data["Market_Value"].sum()
+
+    krd_results = []
 
     for bucket in key_rate_buckets:
 
@@ -35,7 +36,13 @@ def calculate_key_rate_duration(data, key_rate_buckets):
 
 if __name__ == "__main__":
 
-    file_path = "data/bond_portfolio.csv"
+    project_root = Path(__file__).resolve().parent.parent
+
+    file_path = (
+        project_root
+        / "data"
+        / "bond_portfolio.csv"
+    )
 
     data = pd.read_csv(file_path)
 
@@ -51,7 +58,6 @@ if __name__ == "__main__":
         "30Y"
     ]
 
-    # Run only when KeyRateBucket exists in the dataset.
     if "KeyRateBucket" in data.columns:
 
         results = calculate_key_rate_duration(
@@ -66,4 +72,7 @@ if __name__ == "__main__":
     else:
 
         print("KeyRateBucket column is not available yet.")
-        print("Add the actual KRD bucket information when available.")
+        print(
+            "Add the actual KRD bucket information "
+            "when available."
+        )

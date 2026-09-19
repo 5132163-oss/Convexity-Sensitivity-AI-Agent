@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 
 def classify_risk(duration, convexity, dv01):
@@ -42,7 +43,13 @@ def generate_risk_report(data):
 
 if __name__ == "__main__":
 
-    file_path = "data/bond_portfolio.csv"
+    project_root = Path(__file__).resolve().parent.parent
+
+    file_path = (
+        project_root
+        / "data"
+        / "bond_portfolio.csv"
+    )
 
     data = pd.read_csv(file_path)
 
@@ -50,4 +57,5 @@ if __name__ == "__main__":
 
     print("AI Risk Agent")
     print("-" * 40)
+
     print(report)

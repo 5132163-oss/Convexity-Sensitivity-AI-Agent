@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 
 def calculate_var(pnl_data, confidence=0.95):
@@ -7,7 +8,10 @@ def calculate_var(pnl_data, confidence=0.95):
     Calculate historical VaR.
     """
 
-    pnl = np.array(pnl_data)
+    pnl = np.asarray(pnl_data, dtype=float)
+
+    if len(pnl) < 2:
+        return None
 
     var = np.percentile(
         pnl,
@@ -22,7 +26,10 @@ def calculate_cvar(pnl_data, confidence=0.95):
     Calculate Conditional VaR (Expected Shortfall).
     """
 
-    pnl = np.array(pnl_data)
+    pnl = np.asarray(pnl_data, dtype=float)
+
+    if len(pnl) < 2:
+        return None
 
     var = np.percentile(
         pnl,
@@ -39,7 +46,13 @@ def calculate_cvar(pnl_data, confidence=0.95):
 
 if __name__ == "__main__":
 
-    file_path = "data/monte_carlo_scenarios.csv"
+    project_root = Path(__file__).resolve().parent.parent
+
+    file_path = (
+        project_root
+        / "data"
+        / "monte_carlo_scenarios.csv"
+    )
 
     data = pd.read_csv(file_path)
 
@@ -48,8 +61,23 @@ if __name__ == "__main__":
     print("VaR and CVaR Analysis")
     print("-" * 40)
 
-    var_95 = calculate_var(pnl, 0.95)
-    cvar_95 = calculate_cvar(pnl, 0.95)
+    if len(pnl) < 2:
 
-    print("95% VaR:", round(var_95, 2))
-    print("95% CVaR:", round(cvar_95, 2))
+        print(
+            "Insufficient P&L observations "
+            "for meaningful VaR/CVaR estimation."
+        )
+
+        print(
+            "Add the complete scenario dataset "
+            "when available."
+        )
+
+    else:
+
+        var_95 = calculate_var(
+            pnl,
+            0.95
+        )
+
+        cvar_95 = calculate

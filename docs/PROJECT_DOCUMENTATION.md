@@ -83,7 +83,8 @@ Convexity-Sensitivity-AI-Agent/
 │
 └── templates/
     └── dashboard.html
-##5. Risk Analysis Components
+
+## 5. Risk Analysis Components
 Duration
 Duration measures the sensitivity of a bond's price to changes in interest rates.
 Convexity
@@ -99,12 +100,12 @@ Stress testing evaluates portfolio sensitivity under specified interest-rate sho
 VaR and CVaR
 VaR estimates potential loss at a selected confidence level.
 CVaR estimates the average loss beyond the VaR threshold.
-##6. Machine Learning
+## 6. Machine Learning
 The project includes a Random Forest regression model.
 The implementation uses available bond risk variables to demonstrate the machine-learning workflow.
 The current sample dataset contains only a small number of worked-example observations. Therefore, model performance should not be treated as statistically representative.
 A larger actual bond dataset is required for meaningful model training and evaluation.
-##7. AI Risk Agent
+## 7. AI Risk Agent
 The AI Risk Agent currently uses rule-based risk classification.
 It classifies bonds into:
 Low Risk
@@ -114,7 +115,7 @@ The classification is based on:
 Modified Duration
 Convexity
 DV01
-##8. Dashboard
+## 8. Dashboard
 The Flask dashboard presents key portfolio metrics including:
 Portfolio Market Value
 Modified Duration
@@ -126,6 +127,6 @@ The dashboard provides a simple interface for viewing fixed-income portfolio ris
 The project repository currently contains the supplied worked-example bond data.
 The complete 300-bond portfolio and full historical yield-curve dataset are not included unless provided separately.
 Therefore, historical yield-curve results and large-scale machine-learning performance should not be interpreted as final results until the complete datasets are available.
-##10. Conclusion
+## 10. Conclusion
 The project demonstrates a structured approach to fixed-income portfolio risk analysis using Python.
 It combines financial risk metrics, scenario analysis, stress testing, machine learning, rule-based risk classification, and a web dashboard into one application.

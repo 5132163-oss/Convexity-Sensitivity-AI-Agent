@@ -5,8 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Convexity & Sensitivity AI Agent</title>
 
@@ -23,10 +22,12 @@
             color: #222;
         }
 
+    
+
         .header {
             background: #1f2937;
             color: white;
-            padding: 25px;
+            padding: 30px 20px;
             text-align: center;
         }
 
@@ -38,7 +39,10 @@
         .header p {
             margin-top: 8px;
             color: #d1d5db;
+            font-size: 16px;
         }
+
+    
 
         .container {
             max-width: 1200px;
@@ -46,10 +50,14 @@
             padding: 0 20px;
         }
 
+    
+
         .cards {
             display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
             gap: 20px;
         }
 
@@ -58,8 +66,12 @@
             padding: 25px;
             border-radius: 12px;
             text-align: center;
-            box-shadow:
-                0 3px 10px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 3px 10px rgba(
+                0,
+                0,
+                0,
+                0.10
+            );
         }
 
         .card h2 {
@@ -73,23 +85,33 @@
             font-weight: bold;
         }
 
+        
+
         .section {
             background: white;
             margin-top: 25px;
             padding: 25px;
             border-radius: 12px;
-            box-shadow:
-                0 3px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 10px rgba(
+                0,
+                0,
+                0,
+                0.08
+            );
         }
 
         .section h2 {
             margin-top: 0;
         }
 
+        
+
         .features {
             display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(180px, 1fr)
+            );
             gap: 12px;
             margin-top: 15px;
         }
@@ -99,7 +121,10 @@
             padding: 15px;
             border-radius: 8px;
             text-align: center;
+            font-weight: 500;
         }
+
+    
 
         .footer {
             text-align: center;
@@ -113,12 +138,16 @@
 
 </head>
 
+
 <body>
+
+
+
 
     <div class="header">
 
         <h1>
-            Convexity & Sensitivity AI Agent
+            Convexity &amp; Sensitivity AI Agent
         </h1>
 
         <p>
@@ -128,13 +157,21 @@
     </div>
 
 
+    
+
     <div class="container">
+
+
+        
 
         <div class="cards">
 
+
             <div class="card">
 
-                <h2>Portfolio Market Value</h2>
+                <h2>
+                    Portfolio Market Value
+                </h2>
 
                 <div class="value">
                     ₹{{ total_market_value }}
@@ -145,7 +182,9 @@
 
             <div class="card">
 
-                <h2>Modified Duration</h2>
+                <h2>
+                    Modified Duration
+                </h2>
 
                 <div class="value">
                     {{ portfolio_duration }}
@@ -156,7 +195,9 @@
 
             <div class="card">
 
-                <h2>Convexity</h2>
+                <h2>
+                    Convexity
+                </h2>
 
                 <div class="value">
                     {{ portfolio_convexity }}
@@ -167,7 +208,9 @@
 
             <div class="card">
 
-                <h2>DV01</h2>
+                <h2>
+                    Portfolio DV01
+                </h2>
 
                 <div class="value">
                     {{ total_dv01 }}
@@ -178,7 +221,9 @@
 
             <div class="card">
 
-                <h2>Monte Carlo P&amp;L</h2>
+                <h2>
+                    Monte Carlo P&amp;L
+                </h2>
 
                 <div class="value">
                     ₹{{ total_pnl }}
@@ -186,17 +231,23 @@
 
             </div>
 
+
         </div>
 
 
+        
+
         <div class="section">
 
-            <h2>Risk Analysis</h2>
+            <h2>
+                Risk Analysis
+            </h2>
 
             <p>
                 This dashboard presents key fixed-income
                 portfolio risk measures and scenario results.
             </p>
+
 
             <div class="features">
 
@@ -214,6 +265,10 @@
 
                 <div class="feature">
                     Key Rate Duration
+                </div>
+
+                <div class="feature">
+                    Yield Curve Analysis
                 </div>
 
                 <div class="feature">
@@ -237,9 +292,13 @@
         </div>
 
 
+    
+
         <div class="section">
 
-            <h2>Project Information</h2>
+            <h2>
+                Project Information
+            </h2>
 
             <p>
                 <strong>Project:</strong>
@@ -264,14 +323,39 @@
         </div>
 
 
-        <div class="footer">
 
-            Convexity &amp; Sensitivity AI Agent
-            | Fixed-Income Portfolio Risk Analysis
+
+        <div class="section">
+
+            <h2>
+                Data Note
+            </h2>
+
+            <p>
+                The current dashboard uses the supplied
+                worked-example bond portfolio and Monte Carlo
+                scenario data.
+            </p>
+
+            <p>
+                Complete portfolio and historical yield-curve
+                datasets can be added when available.
+            </p>
 
         </div>
 
+
+        <div class="footer">
+
+            Convexity &amp; Sensitivity AI Agent
+            |
+            Fixed-Income Portfolio Risk Analysis
+
+        </div>
+
+
     </div>
+
 
 </body>
 

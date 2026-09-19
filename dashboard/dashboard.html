@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Convexity & Sensitivity AI Agent</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f6f8;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .value {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #eeeeee;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Convexity & Sensitivity AI Agent</h1>
+
+    <p class="subtitle">
+        Fixed-Income Portfolio Risk Analysis Dashboard
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Portfolio Market Value</h2>
+            <div class="value">
+                ₹{{ total_market_value }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Modified Duration</h2>
+            <div class="value">
+                {{ portfolio_duration }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Convexity</h2>
+            <div class="value">
+                {{ portfolio_convexity }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>DV01</h2>
+            <div class="value">
+                {{ total_dv01 }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Monte Carlo P&L</h2>
+            <div class="value">
+                ₹{{ total_pnl }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Risk Analysis</h2>
+
+        <p>
+            This dashboard presents key fixed-income risk measures
+            including Duration, Convexity, DV01 and Monte Carlo P&L.
+        </p>
+
+        <p>
+            These metrics help analyze the sensitivity of the bond
+            portfolio to changes in interest rates and yield curves.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
